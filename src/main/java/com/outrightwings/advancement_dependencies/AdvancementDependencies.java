@@ -40,6 +40,6 @@ public class AdvancementDependencies
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-        Triggers.register();
+        Triggers.register(event);
     }
 }
