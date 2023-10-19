@@ -1,6 +1,7 @@
 package com.outrightwings.advancement_dependencies.criterion;
 
 import com.google.gson.JsonObject;
+import com.outrightwings.advancement_dependencies.AdvancementDependencies;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.resources.ResourceLocation;
@@ -8,7 +9,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.GsonHelper;
 
 public class DependsAdvancementTrigger extends SimpleCriterionTrigger<DependsAdvancementTrigger.TriggerInstance> {
-    static ResourceLocation ID = new ResourceLocation("depends_advancement");;
+    static ResourceLocation ID = new ResourceLocation(AdvancementDependencies.MODID + ":depends_advancement");;
 
     @Override
     public ResourceLocation getId() {
@@ -41,6 +42,7 @@ public class DependsAdvancementTrigger extends SimpleCriterionTrigger<DependsAdv
         }
 
         public boolean matches(Advancement advancement) {
+            System.out.println("Advancement Im looking for: " + this.advancement + " Advancement I got: " + advancement.getId());
             return this.advancement.equals(advancement.getId());
         }
     }
